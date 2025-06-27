@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income & Expense Register</title>
+    <!-- Link to our CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts - Using 'Inter' which is very similar to San Francisco -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Income & Expense Register</h1>
+
+        <!-- Transaction Form -->
+        <form id="transactionForm">
+            <!-- Amount Input -->
+            <div class="form-group">
+                <label for="amount">Amount ₹:</label>
+                <input type="number" id="amount" placeholder="Enter amount" required>
+            </div>
+
+            <!-- Transaction Type Radio Buttons -->
+            <div class="form-group radio-group">
+                <label>Type:</label>
+                <div class="radio-options">
+                    <!-- 'required' attribute ensures one must be selected -->
+                    <input type="radio" id="income" name="transactionType" value="Income" required>
+                    <label for="income" class="radio-label">Income</label>
+                    
+                    <!-- No longer checked by default -->
+                    <input type="radio" id="expense" name="transactionType" value="Expense">
+                    <label for="expense" class="radio-label">Expense</label>
+                </div>
+            </div>
+
+            <!-- Description Input with Datalist for Suggestions -->
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <input type="text" id="description" list="suggestions" placeholder="Select or enter description" required>
+                <datalist id="suggestions">
+                    <!-- Pre-defined options -->
+                    <option value="Salary"></option>
+                    <option value="Rent"></option>
+                    <option value="Groceries"></option>
+                    <option value="Transport"></option>
+                </datalist>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary" id="addTransactionBtn">Add Transaction</button>
+                <a href="#" id="historyBtn" class="btn btn-secondary" target="_blank">Transaction History</a>
+            </div>
+        </form>
+
+        <!-- Current Balance Display -->
+        <div id="balanceDisplay" class="balance-display">
+            <span class="balance-label">Current Balance:</span>
+            <span id="currentBalance" class="balance-amount">₹ 0.00</span>
+        </div>
+    </div>
+
+    <!-- Success Popup Message -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none"/>
+                <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+            <p>Done!</p>
+        </div>
+    </div>
+
+    <!-- Link to our JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>
